@@ -49,7 +49,7 @@ final class StorageManager {
         })
     }
 
-  
+  /*
   
     /// Upload image that will be sent in a conversation message
        public func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping UploadPictureCompletion) {
@@ -75,6 +75,7 @@ final class StorageManager {
            })
        }
 
+  
        /// Upload video that will be sent in a conversation message
        public func uploadMessageVideo(with fileUrl: URL, fileName: String, completion: @escaping UploadPictureCompletion) {
            storage.child("message_videos/\(fileName)").putFile(from: fileUrl, metadata: nil, completion: { [weak self] metadata, error in
@@ -98,7 +99,7 @@ final class StorageManager {
                })
            })
        }
-
+   */
      
     
     public enum StorageErrors: Error {

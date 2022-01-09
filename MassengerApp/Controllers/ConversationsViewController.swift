@@ -24,10 +24,12 @@ final class ConversationsViewController: UIViewController{
     @IBOutlet weak var nomessage: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Chat"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Profile", style: .done, target:self, action: #selector(profileVCTapped))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(adduserAction))
+        nomessage.text = " No Conversation Yet"
         
        // tabelview.isHidden = true
       //  nomessage.isHidden = true
@@ -94,7 +96,7 @@ final class ConversationsViewController: UIViewController{
     private func createNewConversation(result: SearchResult) {
             let name = result.name
             let email = DatabaseManger.safeEmail(emailAddress: result.email)
-
+        nomessage.isHidden = true
             // check in datbase if conversation with these two users exists
             // if it does, reuse conversation id
             // otherwise use existing code

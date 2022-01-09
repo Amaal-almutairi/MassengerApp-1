@@ -20,7 +20,9 @@ class ConversationCustomCell: UITableViewCell {
    
    
     public func configure(with model: Conversation) {
-        
+
+        profilIMG.layer.masksToBounds = true
+        profilIMG.layer.cornerRadius = profilIMG.width/2
          userMessageLabel.text = model.latestMessage.text
            titleLbl.text = model.name
           
