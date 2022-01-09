@@ -111,6 +111,7 @@ extension chatVC: InputBarAccessoryViewDelegate {
             DatabaseManger.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: mmessage, completion: { [weak self]success in
                 if success {
                     print("message sent")
+                    self?.listenForMessages(id:messageId , shouldScrollToBottom: true)
                 }
                 else {
                     print("faield ot send")

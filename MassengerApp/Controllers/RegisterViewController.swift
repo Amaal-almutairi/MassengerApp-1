@@ -91,13 +91,14 @@ class RegisterViewController: UIViewController {
                 
                 Auth.auth().createUser(withEmail: email, password: password, completion: { authResult , error  in
                     
+                    DispatchQueue.main.async {
+                        strongSelf.spinner.dismiss()
+                    }
                     guard let result = authResult, error == nil else {
                         print("Error creating user \(error?.localizedDescription)")
                         return
                     }
-                    DispatchQueue.main.async {
-                        strongSelf.spinner.dismiss()
-                    }
+                    
                     let user = result.user
                     print("Create User: \(user)")
                     

@@ -121,15 +121,7 @@ final class ConversationsViewController: UIViewController{
             })
         }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if Auth.auth().currentUser == nil {
-            let loginVC = self.storyboard?.instantiateViewController(identifier: "signInID") as! LoginViewController
-            let nav = UINavigationController(rootViewController: loginVC)
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: false)
-        }
-    }
+   
     private func startListeningForCOnversations() {
            guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
                return
@@ -200,17 +192,7 @@ extension ConversationsViewController : UITableViewDelegate, UITableViewDataSour
         }
   
     
-   
-    /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let chatVC = chatV()
-        let cell = tableView.cellForRow(at: indexPath)!
-        chatVC.title = cell.textLabel?.text
-        chatVC.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(chatVC, animated: true)
-    }
-     */
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return 120
